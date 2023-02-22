@@ -1,0 +1,126 @@
+h1 {
+    text-align: center;
+    color: aliceblue;
+}
+
+form {
+    text-align: center;
+    margin-block-end: 20px;
+
+
+}
+
+.search {
+    width: 400px;
+    height: 40px;
+    border-radius: 20px;
+
+}
+
+.btn-search{
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+
+}
+
+
+.close-btn,
+.go-btn {
+    width: 60px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 100%);
+    /* margin-block-end: 20px; */
+    border-style: none;
+    box-shadow: -4px 0px 11px 3px dimgrey;
+    margin-inline-end: 5px;
+    margin-block-end: 10px;
+
+}
+
+h4 {
+    font-size: 25px;
+    color: aliceblue;
+    text-align: center;
+    /* margin-top: 30px; */
+
+}
+
+.go-btn {}
+
+.place-card {
+    border-radius: 30px;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    margin-block-start: 20px;
+
+}
+
+button {
+    cursor: pointer;
+}
+
+.place-list {
+    background-color: #9f9f9f;
+    border-radius: 20px;
+    /* margin-inline-start: 20px; */
+    width: 270px;
+    text-align: center;
+    box-shadow: -4px 0px 11px 3px dimgrey;
+
+    padding-bottom: 22px;
+
+}
+
+body {
+    background-color: #c6c6c6;
+    /* display:grid;
+    grid-template-columns: 1fr 1fr; */
+    /* grid-template-rows:1fr 1fr 1fr ; */
+
+}
+
+.control-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center
+}
+
+.map {
+    /* width: 300px; */
+    margin-inline-start: 50px;
+    box-shadow: -4px 0px 11px 3px dimgrey;
+    border-radius: 20px;
+
+}
+
+.btn-map{
+
+    display: flex;
+    /* flex-direction: column; */
+
+
+}
+.btn-add-marker{
+    margin-inline-start: 125px;
+}
+.btn-add-marker, .btn-user-pos, .btn-get-locs ,.btn-pan , .btn-copy-link{
+    width: 90px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: hsl(0, 0%, 100%);
+    /* margin-block-end: 20px; */
+    border-style: none;
+    box-shadow: -4px 0px 11px 3px dimgrey;
+    margin-block-start: 60px;
+
+    margin-inline-end: 10px;
+
+
+}
+
+
+.link{
+    font-size: 20px;
+}

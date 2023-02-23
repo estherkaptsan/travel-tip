@@ -3,7 +3,17 @@ export const utilService = {
     makeId,
     setQueryParams,
     deleteQueryParam,
-    getValFromParam
+    getValFromParam,
+}
+
+
+
+
+function setQueryParams(lat, lng) {
+
+    const queryStringParams = `?lat=${lat}&lng=${lng}`
+    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
+    window.history.pushState({ path: newUrl }, '', newUrl)
 }
 
 function save(entityType, entities) {
@@ -47,14 +57,14 @@ function getValFromParam(key) {
     return queryStringParams.get(key)
 }
 
-function setQueryParams(bookId = '',lang='en') {
+// function setQueryParams(bookId = '',lang='en') {
 
-    const filterBy = getFilterBy()
-    console.log('H');
-     lang = getLang()
-    // &lang=${lang}
+//     const filterBy = getFilterBy()
+//     console.log('H');
+//      lang = getLang()
+//     // &lang=${lang}
 
-    const queryStringParams = `?rate=${filterBy.rate}&price=${filterBy.price}&title=${filterBy.title}&bookid=${bookId}&lang=${lang}`
-    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
-    window.history.pushState({ path: newUrl }, '', newUrl)
-}
+//     const queryStringParams = `?rate=${filterBy.rate}&price=${filterBy.price}&title=${filterBy.title}&bookid=${bookId}&lang=${lang}`
+//     const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
+//     window.history.pushState({ path: newUrl }, '', newUrl)
+// }

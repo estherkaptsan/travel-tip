@@ -1,5 +1,7 @@
 import { locService } from './services/loc.service.js'
 import { mapService } from './services/map.service.js'
+import { utilService } from './services/util.service.js'
+
 
 window.onload = onInit
 window.onAddMarker = onAddMarker
@@ -19,10 +21,11 @@ function onInit() {
     mapService.initMap()
         .then(() => {
             console.log('Map is ready')
+            renderQueryStringParama()
+
         })
         .catch(() => console.log('Error: cannot init map'))
 
-        renderQueryStringParama()
 
 
 }
@@ -66,7 +69,7 @@ function onPanTo(lat = 35.6895, lng = 139.6917) {
     console.log('Panning the Map')
     mapService.panTo(lat, lng)
     mapService.addMarker({ lat, lng })
-    setQueryParams(lat, lng)
+    utilService.setQueryParams(lat, lng)
     // mapService.panTo(35.6895, 139.6917)
 }
 
@@ -122,50 +125,26 @@ function renderPlaces() {
 }
 
 function onCopyLink() {
-    const queryStringParams = (new URLSearchParams(window.location.search)).toString()
-
-    console.log(queryStringParams);
-
-
-   const url = window.location.href;
-   console.log(url);
-
-   const projectUrl=`https://github.io/estherkaptsan/travel-tip${url}`
+    const { href } = window.location
+    navigator.clipboard.writeText(href)
 
 
-   const strHtml= `<a href="${projectUrl}">link</a>`
-   console.log(strHtml);
-   console.log(document.querySelector('.link'));
-   document.querySelector('.link').innerHTML=strHtml
-   console.log(projectUrl);
-
-
-    // const params = new URLSearchParams(url.split('?')[1]);
-
-    // const url = window.location.href;
-
-    // // Extract the parameters from the URL string
-    // const params = new URLSearchParams(url.split('?')[1]);
-    
-    // // Create a new URLSearchParams object and set its value to the extracted parameters
-    // const newParams = new URLSearchParams(params);
-    
-    // // Convert the parameters to a string
-    // const paramsString = newParams.toString();
-    
+//    const url = window.location.href;
+//    const projectUrl=`https://github.io/estherkaptsan/travel-tip${url}`
+//    const strHtml= `<a href="${projectUrl}">link</a>`
+//    console.log(strHtml);
+//    console.log(document.querySelector('.link'));
+//    document.querySelector('.link').innerHTML=strHtml
 
 }
 
-function setQueryParams(lat, lng) {
 
-    const queryStringParams = `?lat=${lat}&lng=${lng}`
-    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + queryStringParams
-    window.history.pushState({ path: newUrl }, '', newUrl)
-}
 
 function renderQueryStringParama() {
 
     const queryStringParams = new URLSearchParams(window.location.search)
+
+    console.log(queryStringParams);
 
     const loaction = {
         lat: +queryStringParams.get('lat') || 35.6895,
@@ -177,3 +156,5 @@ function renderQueryStringParama() {
     onPanTo(loaction.lat, loaction.lng)
 
 }
+
+
